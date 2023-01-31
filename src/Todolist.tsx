@@ -1,11 +1,11 @@
 import React, {useCallback} from 'react'
-import {FilterValuesType} from './App'
 import {AddItemForm} from './AddItemForm'
 import {EditableSpan} from './EditableSpan'
 
 import {Task} from './Task'
 import {Delete} from '@material-ui/icons';
 import {Button, IconButton} from '@material-ui/core';
+import {FilterValuesType} from './AppWithRedux';
 
 export type TaskType = {
     id: string
