@@ -10,9 +10,6 @@ export default {
 export const GetTodolists = () => {
     const [state, setState] = useState<any>(null);
     useEffect(() => {
-        // здесь мы будем делать запрос и ответ закидывать в стейт.
-        // который в виде строки будем отображать в div-ке
-
         todolistAPI.getTodolist()
             .then(res => setState(res.data));
 
@@ -47,7 +44,7 @@ export const DeleteTodolist = () => {
 export const UpdateTodolistTitle = () => {
     const [state, setState] = useState<any>(null)
     useEffect(() => {
-        const todolistId = 'b675e1bb-448b-4fea-a2ab-4141fddfaf19'
+        const todolistId = '47c6733e-050d-4b29-9907-51cfe905e576'
         todolistAPI.updateTodolist(todolistId, 'SOME NEW TITLE, BEACH!').then((res) => {
             setState(res.data)
         })

@@ -1,5 +1,37 @@
 import axios from 'axios';
 
+type TodolistType = {
+    id: string
+    addedDate: string
+    order: number
+    title: string
+}
+
+
+type CreateTodolistResponseType = {
+    resultCode: number
+    messages: Array<string>
+    fieldsErrors: Array<string>
+    data: {
+        item: TodolistType
+    }
+}
+
+
+type UpdateTodolistResponseType = {
+    resultCode: number
+    messages: Array<string>
+    fieldsErrors: Array<string>
+    data: {}
+}
+
+
+type DeleteTodolistResponseType = {
+    resultCode: number
+    messages: Array<string>
+    fieldsErrors: Array<string>
+    data: {}
+}
 
 
 
@@ -15,8 +47,13 @@ const instance = axios.create({
 
 
 export const todolistAPI = {
+    getTodolist() {
+        const promise =  instance.get<Array<TodolistType>>('todo-lists')
+        return promise;
+    },
+
     updateTodolist(todolistId: string, title: string) {
-        const promise = instance.put(
+        const promise = instance.put<CreateTodolistResponseType>(
             `todo-lists/${todolistId}`,
             {title: title}
         );
@@ -24,18 +61,12 @@ export const todolistAPI = {
     },
 
     deleteTodolist(todolistId: string) {
-        const promise = instance.delete(`todo-lists/${todolistId}`);
+        const promise = instance.delete<DeleteTodolistResponseType>(`todo-lists/${todolistId}`);
         return promise;
     },
 
     createTodolist() {
-        const promise =  instance.post('todo-lists', {title: 'NewTodoTitle-Vadim'})
+        const promise =  instance.post<UpdateTodolistResponseType>('todo-lists', {title: 'NewTodoTitle-Vadim'})
         return promise;
-    },
-
-    getTodolist() {
-        const promise =  instance.get('todo-lists')
-        return promise;
-    },
-
+    }
 };
