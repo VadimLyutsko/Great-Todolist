@@ -12,7 +12,7 @@ import {
 } from './state/todolists-reducer';
 import {addTaskAC, changeTaskStatusAC, changeTaskTitleAC, removeTaskAC, tasksReducer} from './state/tasks-reducer';
 import {AppBar, Button, Container, Grid, IconButton, Paper, Toolbar, Typography} from '@material-ui/core';
-import {Menu} from '@material-ui/icons';
+import {Menu} from '@mui/icons-material';
 
 export type FilterValuesType = "all" | "active" | "completed";
 export type TodolistType = {
