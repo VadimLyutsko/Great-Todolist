@@ -14,33 +14,6 @@ export type ResponseType<D> = {
     data: D
 }
 
-
-// type CreateTodolistResponseType = {
-//     resultCode: number
-//     messages: Array<string>
-//     fieldsErrors: Array<string>
-//     data: {
-//         item: TodolistType
-//     }
-// }
-
-
-// type UpdateTodolistResponseType = {
-//     resultCode: number
-//     messages: Array<string>
-//     fieldsErrors: Array<string>
-//     data: {}
-// }
-
-
-// type DeleteTodolistResponseType = {
-//     resultCode: number
-//     messages: Array<string>
-//     fieldsErrors: Array<string>
-//     data: {}
-// }
-
-
 const instance = axios.create({
     baseURL: 'https://social-network.samuraijs.com/api/1.1/',
     withCredentials: true,
