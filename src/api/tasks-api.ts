@@ -29,12 +29,12 @@ type ResponseUpdateType = {
     resultCode: number
 }
 
-type ResponseDeleteType ={
-    data:{}
-    messages: Array<string>,
-    fieldsErrors?: Array<string>
-    resultCode: number
-}
+// type ResponseDeleteType ={
+//     data:{}
+//     messages: Array<string>,
+//     fieldsErrors?: Array<string>
+//     resultCode: number
+// }
 
 type TaskType = {
     id?: string
@@ -51,12 +51,12 @@ type TaskType = {
 }
 
 
-// export type ResponseType<D={}> = {
-//     resultCode: number
-//     messages: Array<string>
-//     fieldsErrors: Array<string>
-//     data: D
-// }
+export type ResponseType<D={}> = {
+    resultCode: number
+    messages: Array<string>
+    fieldsErrors: Array<string>
+    data: D
+}
 
 const instance = axios.create({
     baseURL: 'https://social-network.samuraijs.com/api/1.1/',
@@ -85,6 +85,6 @@ export const tasksAPI = {
     },
 
     deleteTaskFromDefiniteTodolist(todolistId: string, taskId: string) {
-        return instance.delete<ResponseDeleteType>(`todo-lists/${todolistId}/tasks/${taskId}`);
+        return instance.delete<ResponseType>(`todo-lists/${todolistId}/tasks/${taskId}`);
     },
 };
