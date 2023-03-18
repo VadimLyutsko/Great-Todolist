@@ -18,7 +18,10 @@ export const ErrorSnackbar=()=> {
         if (reason === 'clickaway') {
             return
         }
+
         dispatch(setErrorAC(null))
+
+
     }
     return (
         <Snackbar open={!!error} autoHideDuration={3000} onClose={handleClose}>
