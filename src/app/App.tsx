@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import './App.css'
 import {TodolistsList} from '../features/TodolistsList/TodolistsList'
 import {useAppDispatch, useAppSelector} from './store'
-import { RequestStatusType} from './app-reducer'
+import {RequestStatusType} from './app-reducer'
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
@@ -24,11 +24,11 @@ function App() {
     const isLoggedIn = useAppSelector<boolean>((state) => state.auth.isLoggedIn)
     const dispatch = useAppDispatch()
 
-    const logOutHandler = ()=>{
+    const logOutHandler = () => {
         dispatch(logoutTC())
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(initializeAppTC())
     }, [])
 
@@ -58,8 +58,8 @@ function App() {
                 <Routes>
                     <Route path={'/'} element={<TodolistsList/>}/>
                     <Route path={'login'} element={<Login/>}/>
-                    <Route path='404' element={<h1 style={{textAlign:'center'}} >404: PAGE NOT FOUND</h1>} />
-                    <Route path='*' element={<Navigate to={'404'} />} />
+                    <Route path="404" element={<h1 style={{textAlign: 'center'}}>404: PAGE NOT FOUND</h1>}/>
+                    <Route path="*" element={<Navigate to={'/'}/>}/>
 
                 </Routes>
             </Container>
